@@ -1,0 +1,17 @@
+Spawner Wrench
+
+Description:
+    Plugin allows spawners to be mined by players using the provided wrench.
+    Wrench is a golden pickaxe that can only pick-up 1 spawner before it disappears.
+
+Permissions:
+    Wrench.Give - Allows access to the wrench command.
+
+Commands:
+    Wrench:
+        give:
+            usage: /wrench give <playername>
+            description: This command will give the player you specify a wrench.
+        info:
+            usage: /wrench info
+            description: This will display general information about the SpawnerWrench plugin.

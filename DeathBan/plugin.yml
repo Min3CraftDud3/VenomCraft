@@ -1,0 +1,9 @@
+name: DeathBan
+main: com.SinfulPixel.DeathBan.DeathBan
+version: 1.0
+description: Bans Players for 3 hours on death.
+author: Min3CraftDud3
+website: http://www.SinfulPixel.com
+commands:
+  unban:
+    description: "Unbans Player. Usage /unban <playername>"
