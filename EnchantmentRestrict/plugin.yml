@@ -1,0 +1,13 @@
+name: ERestrict
+main: com.sinfulpixel.ERestrict.ERistrict
+version: 1.0
+description: Allows Enchantment restrictions
+author: Min3CraftDud3
+website: http://www.SinfulPixel.com
+commands:
+  erreload:
+    description: "Reloads ERestrict."
+  table:
+    description: "Spawns an enchantment table."
+  unenchant:
+    description: "Removes all enchantments from an item."
