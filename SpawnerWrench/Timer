@@ -1,3 +1,18 @@
 Session Timer
 Start Time: 2-8-15_8:06pm
 End Time: 2-8-15_9:43pm
+
+
+
+====[ Price section based on session timer ]====
+Plugin: SpawnerWrench
+Known Bugs: No bugs fully tested
+Updates Needed: Updates should not be needed for this plugin.
+Bug Testing time on server left: 1Hr
+
+
+
+Time spent: 1:37
+First hour = $20
+Additional Hour = $10 + 50% discount
+Final Price $25
