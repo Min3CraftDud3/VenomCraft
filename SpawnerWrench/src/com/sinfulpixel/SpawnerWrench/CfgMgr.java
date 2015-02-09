@@ -28,7 +28,7 @@ public class CfgMgr {
                     fc.set("SpawnerWrench.Mobs." + e.getName(), true);
                 }
                 fc.save(cfg);
-            }else{return;}
+            }
         }catch(IOException e){e.printStackTrace();}
     }
     public static void cacheMobs(){
