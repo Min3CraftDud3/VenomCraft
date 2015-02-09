@@ -1,0 +1,9 @@
+name: SpawnerWrench
+main: com.sinfulpixel.SpawnerWrench.SpawnerWrench
+version: 1.0
+description: Allows Spawners to be mined with a specific Item "Wrench".
+author: Min3CraftDud3
+website: http://www.SinfulPixel.com
+commands:
+  wrench:
+    description: "Base command for plugin /wrench <give/info>"
