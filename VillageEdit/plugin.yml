@@ -1,0 +1,9 @@
+name: VillagerEdit
+main: com.sinfulpixel.VillageEdit.VillageEdit
+version: 1.0
+description: Allows you to edit the trades of certain villagers.
+author: Min3CraftDud3
+website: http://www.SinfulPixel.com
+commands:
+  villager:
+    description: "Base command for VillagerEdit."
