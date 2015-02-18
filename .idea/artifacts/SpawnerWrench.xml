@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SpawnerWrench">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpawnerWrench</output-path>
+    <root id="archive" name="SpawnerWrench.jar">
+      <element id="module-output" name="SpawnerWrench" />
+      <element id="file-copy" path="$PROJECT_DIR$/SpawnerWrench/plugin.yml" />
+    </root>
+  </artifact>
+</component>

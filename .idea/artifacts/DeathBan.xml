@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DeathBan">
+    <output-path>$PROJECT_DIR$/out/artifacts/DeathBan</output-path>
+    <root id="archive" name="DeathBan.jar">
+      <element id="module-output" name="DeathBan" />
+      <element id="file-copy" path="$PROJECT_DIR$/DeathBan/plugin.yml" />
+    </root>
+  </artifact>
+</component>
