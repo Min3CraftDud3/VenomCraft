@@ -1,10 +1,7 @@
 package com.sinfulpixel.VillageEdit;
 
-import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+
+import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
@@ -73,7 +70,7 @@ public class NpcConfig {
                 fc.save(cfg);
             }
         }catch(Exception e){
-            System.out.println("|||=========[ Error Creating Config File ]=========|||");
+            System.out.println("|||=========[ Error Creating Default Config File ]=========|||");
             e.printStackTrace();
             System.out.println("|||=========[ End Error ]=========|||");
         }
@@ -104,23 +101,26 @@ public class NpcConfig {
     }
     public static void cacheNPC(){
         File cfg = new File(plugin.getDataFolder() + File.separator + "data" + File.separator + "Villagers.yml");
-        List<String> locs = null;
+        List<String> locs = new ArrayList<>();
         if(cfg.exists()) {
             FileConfiguration fc = YamlConfiguration.loadConfiguration(cfg);
-            for(String s:fc.getConfigurationSection("Villager").getKeys(false)){
-                locs.add(fc.getString("Villager."+s+".Location"));
+            for(int i=0;i<=fc.getConfigurationSection("Villager").getKeys(false).size();i++){
+                locs.add(fc.getString("Villager."+i+".Location"));
             }
         }
         if(locs != null) {
             for (String s : locs) {
-                String[] t = s.split(",");
-                iloc.add(new Location(Bukkit.getWorld(t[0]), Double.parseDouble(t[1]), Double.parseDouble(t[2]), Double.parseDouble(t[3])));
-                System.out.println("Caching Item-Banker at Location: " + t[1] + "," + t[2] + "," + t[3]);
+                if (s!=null && !s.isEmpty() && !s.equals("")) {
+                    String[] t = s.split(",");
+                    iloc.add(new Location(Bukkit.getWorld(t[0]), Double.parseDouble(t[1]), Double.parseDouble(t[2]), Double.parseDouble(t[3])));
+                    System.out.println("Caching Villager at Location: " + t[1] + "," + t[2] + "," + t[3]);
+                }
             }
         }
         createActiveNPC();
     }
     public static void createActiveNPC(){
+        System.out.println("Creating Active NPC's");
         for(Location l:iloc){
             Villager villager = (Villager)l.getWorld().spawnEntity(l, EntityType.VILLAGER);
             villager.setCustomName(ChatColor.GREEN+"Merchant");
@@ -132,9 +132,9 @@ public class NpcConfig {
             iVillager.put(villager.getUniqueId(), villager.getLocation());
         }
         createTrades();
-        freezeBanker();
     }
     public static void createTrades(){
+        System.out.println("Creating Villager Trades");
         int i = iVillager.size();
         int c = 0;
         while(c<i) {
@@ -164,8 +164,10 @@ public class NpcConfig {
                 }
             }
         }
+        freezeBanker();
     }
     public static void freezeBanker(){
+        System.out.println("Starting Villager Freeze Task");
         freeze = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin,new Runnable(){
             public void run() {
                 for (UUID u : iVillager.keySet()) {

@@ -21,14 +21,18 @@ public class VillagerCmd implements CommandExecutor {
                     sender.sendMessage("Usage: /Villager <create,reload,info>");
                 }
                 if(args.length==2){
-                    if(args[0].equalsIgnoreCase("create")&&sender.hasPermission("Villager.Create")) {
+                    if(args[0].equalsIgnoreCase("create") && sender.hasPermission("Villager.Create")) {
                         try{
                             Location l = p.getLocation();
                             NpcConfig.createNPC(l.getWorld().getName() + "," + l.getBlockX() + "," + l.getBlockY() + "," + l.getBlockZ());
                             p.sendMessage(ChatColor.GREEN + "Created Merchant!");
-                        }catch(Exception ee){}
+                        }catch(Exception ee){
+                            System.out.println("|||=========[ Error Create Merchant Command ]=========|||");
+                            ee.printStackTrace();
+                            System.out.println("|||=========[ End Error ]=========|||");
+                        }
                     }
-                    if(args[0].equalsIgnoreCase("reload")&&sender.hasPermission("Villager.Reload")){
+                    if(args[0].equalsIgnoreCase("reload") && sender.hasPermission("Villager.Reload")){
                         NpcConfig.cacheNPC();
                         sender.sendMessage(ChatColor.GREEN+"VillagerEdit has been reloaded.");
                     }

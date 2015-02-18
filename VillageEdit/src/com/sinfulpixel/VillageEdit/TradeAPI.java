@@ -16,14 +16,16 @@ import java.lang.reflect.Field;
  */
 public final class TradeAPI {
     public static void ClearTrades(Villager v){
-        EntityVillager entityVillager = ((CraftVillager)v).getHandle();
         try{
+            EntityVillager entityVillager = ((CraftVillager)v).getHandle();
             Field recipies = entityVillager.getClass().getDeclaredField("bu");
             recipies.setAccessible(true);
             MerchantRecipeList list = new MerchantRecipeList();
             recipies.set(entityVillager,list);
         } catch (Exception e) {
+            System.out.println("|||=========[ Error Clearing Trades ]=========|||");
             e.printStackTrace();
+            System.out.println("|||=========[ End Error ]=========|||");
         }
     }
     public static void addTrade(Villager v, VillagerTrade villagerTrade){
@@ -43,8 +45,10 @@ public final class TradeAPI {
                 list.a(new MerchantRecipe(item1,rewardItem));
             }
             recipes.set(entityVillager,list);
-        }catch(Exception i){
-            i.printStackTrace();
+        }catch(Exception e){
+            System.out.println("|||=========[ Error Adding Trade ]=========|||");
+            e.printStackTrace();
+            System.out.println("|||=========[ End Error ]=========|||");
         }
     }
 }

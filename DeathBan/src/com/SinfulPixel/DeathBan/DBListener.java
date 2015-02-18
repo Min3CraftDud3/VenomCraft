@@ -19,12 +19,9 @@ public class DBListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerLoginEvent e) {
-        System.out.println("0");
         Player player = e.getPlayer();
         if (DeathBan.banned.containsKey(player.getName().toLowerCase())) {
-            System.out.println("1");
             if (DeathBan.banned.get(player.getName().toLowerCase()) != null) {
-                System.out.println("2");
                 long endOfBan = DeathBan.banned.get(player.getName().toLowerCase());
                 long now = System.currentTimeMillis();
                 long diff = endOfBan - now;

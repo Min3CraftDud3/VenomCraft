@@ -1,5 +1,6 @@
 package com.sinfulpixel.VillageEdit;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -14,8 +15,15 @@ public class VillageEdit extends JavaPlugin {
             MakeDir();
             NpcConfig.createCfg();
             NpcConfig.cacheNPC();
-        }catch(Exception e){}
+        }catch(Exception e){
+            System.out.println("|||=========[ Plugin Startup Task Error ]=========|||");
+            e.printStackTrace();
+            System.out.println("|||=========[ End Error ]=========|||");
+        }
     getCommand("villager").setExecutor(new VillagerCmd(this));
+    }
+    public void onDisable(){
+        Bukkit.getScheduler().cancelAllTasks();
     }
     private void MakeDir(){
         File dir = this.getDataFolder();

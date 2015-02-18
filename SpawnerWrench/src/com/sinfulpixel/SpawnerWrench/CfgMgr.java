@@ -37,7 +37,6 @@ public class CfgMgr {
             FileConfiguration fc = YamlConfiguration.loadConfiguration(cfg);
             for(EntityType en : EntityType.values()){
                 mobs.put(en.getName(),fc.getBoolean("SpawnerWrench.Mobs."+en.getName()));
-                System.out.println(en.getName()+"|"+fc.getBoolean("SpawnerWrench.Mobs."+en.getName()));
             }
         }
     }
