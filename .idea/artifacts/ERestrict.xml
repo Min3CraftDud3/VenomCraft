@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="ERestrict">
-    <output-path>$PROJECT_DIR$/out/artifacts/ERestrict</output-path>
-    <root id="archive" name="ERestrict.jar">
-      <element id="module-output" name="EnchantmentRestrict" />
-      <element id="file-copy" path="$PROJECT_DIR$/EnchantmentRestrict/plugin.yml" />
-    </root>
-  </artifact>
-</component>
